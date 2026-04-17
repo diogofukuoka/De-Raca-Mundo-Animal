@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Raça | Pet Shop & Aviário Premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg: '#050505',
+            surface: '#0f0f0f',
+            accent: '#C2A35D',
+            'accent-hover': '#b09452',
+            textp: '#FFFFFF',
+            texts: '#A1A1A1',
+            bordercol: 'rgba(255, 255, 255, 0.1)'
+          },
+          fontFamily: {
+            sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+          letterSpacing: {
+            wider: '0.1em',
+            widest: '0.2em',
+            tighter: '-0.03em',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    body { background-color: #050505; color: #FFFFFF; overflow-x: hidden; }
+    .marquee-container {
+      display: flex;
+      width: 200vw;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-content {
+      display: flex;
+      justify-content: space-around;
+      width: 100vw;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.85) 50%, rgba(5,5,5,0.3) 100%);
+    }
+    .section-optimized {
+      content-visibility: auto;
+      contain-intrinsic-size: 1000px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-bg font-sans">
+
+  <!-- SCROLL INTENT UI (Predictive UX) -->
+  <div id="scroll-intent" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-surface/95 border border-bordercol backdrop-blur-xl px-5 py-2.5 rounded-full text-[10px] uppercase tracking-widest text-accent font-bold transition-all duration-500 opacity-0 translate-y-10 flex items-center gap-2 pointer-events-none shadow-2xl">
+    <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse relative"></span>
+    <span id="intent-text">Otimizando contexto Hero...</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-bg border-b border-bordercol">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="text-[20px] font-extrabold tracking-widest text-accent uppercase">
+        DE RAÇA
+      </div>
+      <nav class="hidden md:flex gap-8 text-[12px] font-medium text-texts uppercase tracking-wider">
+        <a href="#solucoes" class="hover:text-accent transition-colors">Soluções</a>
+        <a href="#diferenciais" class="hover:text-accent transition-colors">Diferenciais</a>
+        <a href="#depoimentos" class="hover:text-accent transition-colors">Depoimentos</a>
+      </nav>
+      <a href="https://wa.me/5541996098880" target="_blank" class="px-5 py-2 border border-accent text-accent uppercase text-[11px] hover:bg-accent hover:text-black rounded-sm transition-colors font-semibold">
+        Fale no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[90vh] flex items-center pt-20">
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Cachorro majestoso" class="hero-img w-full h-full object-cover object-center opacity-30 grayscale-[50%]">
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col gap-6">
+      <div class="max-w-2xl">
+        <p class="hero-text text-accent font-medium text-[11px] tracking-widest uppercase mb-4">Pet Shop • Aviário • Jardim</p>
+        <h1 class="hero-text text-5xl md:text-[64px] font-semibold leading-[1.1] tracking-tighter text-textp mb-6">
+          O padrão ouro em<br/>
+          <span class="text-accent">cuidado e bem-estar.</span>
+        </h1>
+        <p class="hero-text text-texts text-[16px] leading-[1.6] mb-8 max-w-lg">
+          <strong>Onde encontrar tudo para seu animal e jardim?</strong> A De Raça é o ecossistema completo que unifica nutrição animal avançada, farmacologia veterinária, aviário profissional e horticultura em uma só parada. Receba consultoria humanizada e encontre a solução exata para a longevidade do seu pet.
+        </p>
+        <div class="hero-text flex flex-wrap gap-5">
+          <a href="#solucoes" class="px-8 py-4 bg-accent hover:bg-accent-hover text-black font-bold uppercase text-[12px] rounded-sm transition-colors">
+            Explorar Catálogo
+          </a>
+          <a href="https://wa.me/5541996098880" class="px-8 py-4 border border-accent hover:bg-accent text-accent hover:text-black font-bold uppercase text-[12px] rounded-sm transition-colors flex items-center gap-2">
+            Delivery Rápido
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE AUTORIDADE (MARQUEE) -->
+  <div class="border-y border-bordercol bg-surface py-5 overflow-hidden">
+    <div class="marquee-container text-texts font-medium uppercase text-[11px] tracking-widest">
+      <div class="marquee-content flex justify-around items-center w-full">
+        <div class="flex items-center gap-2.5"><span>Delivery Rápido</span><span class="text-textp font-bold text-[18px]">MESMO DIA</span></div>
+        <div class="flex items-center gap-2.5"><span>Frete Pilarzinho</span><span class="text-textp font-bold text-[18px]">GRÁTIS > R$100</span></div>
+        <div class="flex items-center gap-2.5"><span>Avaliação Google</span><span class="text-textp font-bold text-[18px]">4.6 ★</span></div>
+        <div class="flex items-center gap-2.5"><span>Cuidado e Tradição</span><span class="text-textp font-bold text-[18px]">COMPLETO</span></div>
+      </div>
+      <div class="marquee-content flex justify-around items-center w-full">
+        <div class="flex items-center gap-2.5"><span>Delivery Rápido</span><span class="text-textp font-bold text-[18px]">MESMO DIA</span></div>
+        <div class="flex items-center gap-2.5"><span>Frete Pilarzinho</span><span class="text-textp font-bold text-[18px]">GRÁTIS > R$100</span></div>
+        <div class="flex items-center gap-2.5"><span>Avaliação Google</span><span class="text-textp font-bold text-[18px]">4.6 ★</span></div>
+        <div class="flex items-center gap-2.5"><span>Cuidado e Tradição</span><span class="text-textp font-bold text-[18px]">COMPLETO</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFERENCIAIS (BENTO GRID) -->
+  <section id="diferenciais" class="py-24 relative bg-bg section-optimized">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal mb-12">
+        <h2 class="text-4xl font-semibold mb-4 text-textp tracking-tighter">Por que escolher a De Raça?</h2>
+        <p class="text-texts text-[16px] leading-[1.6] max-w-xl"><strong>Como garantimos a saúde do seu pet e jardim?</strong> A De Raça transcende o conceito tradicional ao oferecer um ecossistema completo que unifica nutrição animal, suporte veterinário técnico, e suprimentos de aviário. Nossa consultoria humanizada prevê demandas e resolve problemas complexos em uma única visita.</p>
+        <div class="w-10 h-px bg-accent mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[280px]">
+        
+        <div class="reveal bento-card md:col-span-2 bg-surface border border-bordercol rounded-lg p-6 relative overflow-hidden group flex flex-col justify-end">
+          <img src="https://images.pexels.com/photos/6235233/pexels-photo-6235233.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Atendimento" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-transparent"></div>
+          <div class="relative z-10">
+            <h3 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Atendimento Consultivo</h3>
+            <div class="w-10 h-px bg-accent mb-4"></div>
+            <p class="text-textp text-[18px] font-medium leading-[1.3] max-w-md">Mais que vendedores. Giovani e Dielen trazem expertise real para cuidar do seu animal ou jardim, indicando sempre a solução definitiva e mais saudável.</p>
+          </div>
+        </div>
+
+        <div class="reveal bento-card bg-surface border border-bordercol rounded-lg p-6 relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <h3 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Logística Imbatível</h3>
+            <div class="w-10 h-px bg-accent mb-4"></div>
+          </div>
+          <p class="text-textp text-[18px] font-medium leading-[1.3]">Delivery no mesmo dia e frete grátis para compras acima de R$100 no Pilarzinho e arredores.</p>
+        </div>
+
+        <div class="reveal bento-card bg-surface border border-bordercol rounded-lg p-6 relative overflow-hidden group flex flex-col justify-between">
+          <div>
+            <h3 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Tradição Local</h3>
+            <div class="w-10 h-px bg-accent mb-4"></div>
+          </div>
+          <p class="text-textp text-[18px] font-medium leading-[1.3]">Honestidade em preços e uma nota média de 4.6 feita por centenas de clientes satisfeitos.</p>
+        </div>
+
+        <div class="reveal bento-card md:col-span-2 bg-surface border border-bordercol rounded-lg p-6 relative overflow-hidden group flex flex-col justify-end">
+          <img src="https://images.pexels.com/photos/4503273/pexels-photo-4503273.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Jardinagem" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-r from-bg via-bg/90 to-transparent"></div>
+          <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between">
+            <div>
+              <h3 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Longe do Convencional</h3>
+              <div class="w-10 h-px bg-accent mb-4"></div>
+              <p class="text-textp text-[18px] font-medium leading-[1.3] max-w-md">De rações a granel ou super premium para seu pet até uma seção inteira dedicada a hortaliças e aviário para aves silvestres e galinhas.</p>
+            </div>
+            <div class="text-accent text-[14px] font-medium mt-4 md:mt-0 uppercase tracking-wider">Tudo em um só lugar</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS / SOLUÇÕES -->
+  <section id="solucoes" class="py-24 relative border-t border-bordercol bg-bg section-optimized">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal mb-16 max-w-2xl">
+        <h2 class="text-4xl font-semibold mb-4 text-textp tracking-tighter">O que oferecemos para o seu lar?</h2>
+        <p class="text-texts text-[16px] leading-[1.6]"><strong>Quais soluções você encontra aqui?</strong> Entregamos um catálogo hiper-personalizado: rações de alto rendimento, medicamentos sob orientação estrita, gaiolas para aves silvestres e insumos vitais para sua horticultura corporativa ou caseira. Respondemos exatamente ao que o seu ambiente biológico exige para prosperar com sustentabilidade.</p>
+        <div class="w-10 h-px bg-accent mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal group bento-card bg-surface border border-bordercol p-6 rounded-lg">
+          <h4 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Alimentação Animal</h4>
+          <div class="w-10 h-px bg-accent mb-4"></div>
+          <p class="text-textp text-[16px] font-medium leading-[1.4] mb-6">Rações Super Premium, opções a granel de alta qualidade e os melhores petiscos para o seu animal.</p>
+          <div class="w-full h-40 rounded border border-bordercol overflow-hidden relative">
+            <img src="https://images.pexels.com/photos/2774140/pexels-photo-2774140.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Alimentação" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+          </div>
+        </div>
+
+        <div class="reveal group bento-card bg-surface border border-bordercol p-6 rounded-lg" style="transition-delay: 100ms;">
+          <h4 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Linha de Saúde</h4>
+          <div class="w-10 h-px bg-accent mb-4"></div>
+          <p class="text-textp text-[16px] font-medium leading-[1.4] mb-6">Medicamentos veterinários, suplementos e orientação sólida sobre o cuidado correto para cada fase.</p>
+          <div class="w-full h-40 rounded border border-bordercol overflow-hidden relative">
+            <img src="https://images.pexels.com/photos/6235117/pexels-photo-6235117.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Saúde" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+          </div>
+        </div>
+
+        <div class="reveal group bento-card bg-surface border border-bordercol p-6 rounded-lg" style="transition-delay: 200ms;">
+          <h4 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Aviário Completo</h4>
+          <div class="w-10 h-px bg-accent mb-4"></div>
+          <p class="text-textp text-[16px] font-medium leading-[1.4] mb-6">Equipamentos específicos e rações balenceadas para criadores de aves silvestres, gaiolas e galinhas.</p>
+          <div class="w-full h-40 rounded border border-bordercol overflow-hidden relative">
+            <img src="https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aviário" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+          </div>
+        </div>
+
+        <div class="reveal group bento-card bg-surface border border-bordercol p-6 rounded-lg" style="transition-delay: 300ms;">
+          <h4 class="text-accent text-[14px] uppercase tracking-wider font-semibold mb-2">Hortas & Jardim</h4>
+          <div class="w-10 h-px bg-accent mb-4"></div>
+          <p class="text-textp text-[16px] font-medium leading-[1.4] mb-6">Sementes, mudas frescas de hortaliças variadas e todos os artigos necessários para jardinagem caseira.</p>
+          <div class="w-full h-40 rounded border border-bordercol overflow-hidden relative">
+            <img src="https://images.pexels.com/photos/1301435/pexels-photo-1301435.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Jardim" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="py-24 relative border-t border-bordercol bg-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal mb-16">
+        <h2 class="text-4xl font-semibold mb-4 text-textp tracking-tighter">A Voz da Nossa Tradição</h2>
+        <p class="text-texts text-[16px] leading-[1.6]">Por que somos a principal escolha e avaliados com 4.6 no bairro.</p>
+        <div class="w-10 h-px bg-accent mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="reveal bento-card bg-bg border border-bordercol p-8 rounded-lg">
+          <div class="flex gap-1 text-accent mb-4 text-[12px]">★ ★ ★ ★ ★</div>
+          <p class="text-texts text-[16px] font-medium leading-[1.6] mb-8">"A Dielen e o Giovani são incríveis. Eles nunca tentam te empurrar o produto mais caro, mas sim o que resolve o problema do seu pet. Profissionalismo raro."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border border-bordercol flex items-center justify-center text-accent text-[14px] font-bold">M</div>
+            <div>
+              <p class="text-[14px] font-bold text-textp uppercase tracking-wider">Marcos Silva</p>
+              <p class="text-[12px] text-texts mt-1 uppercase">Cliente há 3 anos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal bento-card bg-bg border border-bordercol p-8 rounded-lg">
+          <div class="flex gap-1 text-accent mb-4 text-[12px]">★ ★ ★ ★ ★</div>
+          <p class="text-texts text-[16px] font-medium leading-[1.6] mb-8">"Tem tudo que procuro. Compro a ração do meu cachorro, o alpiste do viveiro e volto com mudas de alface pra horta de casa. E entregam muito rápido!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border border-bordercol flex items-center justify-center text-accent text-[14px] font-bold">C</div>
+            <div>
+              <p class="text-[14px] font-bold text-textp uppercase tracking-wider">Camila Rodrigues</p>
+              <p class="text-[12px] text-texts mt-1 uppercase">Moradora Pilarzinho</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal bento-card bg-bg border border-bordercol p-8 rounded-lg">
+          <div class="flex gap-1 text-accent mb-4 text-[12px]">★ ★ ★ ★ ★</div>
+          <p class="text-texts text-[16px] font-medium leading-[1.6] mb-8">"Fiz um pedido grande no Whats precisando pra hoje mesmo. Com frete grátis me entregaram na porta impecável. Só compro com eles agora."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded border border-bordercol flex items-center justify-center text-accent text-[14px] font-bold">J</div>
+            <div>
+              <p class="text-[14px] font-bold text-textp uppercase tracking-wider">João Pedro Alves</p>
+              <p class="text-[12px] text-texts mt-1 uppercase">Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-24 relative overflow-hidden bg-bg border-t border-bordercol">
+    <div class="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+      <div class="reveal">
+        <h2 class="text-4xl md:text-5xl font-semibold mb-6 tracking-tighter text-textp">Pronto para elevar o cuidado<br/>do seu ambiente?</h2>
+        <p class="text-texts mb-10 text-[16px] leading-[1.6] max-w-xl mx-auto">Seja seu companheiro peludo, os bicos que cantam na sua sacada ou o verde que traz vida à sua casa. A De Raça possui a solução.</p>
+        <a href="https://wa.me/5541996098880" class="inline-block px-10 py-5 bg-accent hover:bg-accent-hover text-black font-bold uppercase text-[12px] rounded-sm transition-transform hover:scale-105 duration-300" target="_blank">
+          Comprar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA / LOCALIZAÇÃO -->
+  <section class="py-24 relative border-t border-bordercol bg-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-semibold mb-2 text-textp tracking-tighter">Onde Estamos</h2>
+          <p class="text-texts text-[16px]">Rua Maestro Herrmann, 48 - Pilarzinho, Curitiba - PR, 82100-360</p>
+        </div>
+        <div class="hidden md:block w-20 h-px bg-accent"></div>
+      </div>
+      <div class="w-full h-[450px] rounded-lg border border-bordercol overflow-hidden reveal bg-bg">
+        <iframe 
+          src="https://maps.google.com/maps?q=Rua%20Maestro%20Herrmann,%2048%20-%20Pilarzinho,%20Curitiba%20-%20PR,%2082100-360&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-bordercol bg-surface py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-[16px] font-extrabold tracking-widest text-accent uppercase">
+        DE RAÇA.
+      </div>
+      <p class="text-texts text-[12px] uppercase tracking-wider">
+        &copy; 2026 De Raça Pet Shop, Aviário e Jardinagem. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Scroll Intent Tracking (Predictive UX)
+      const intentContainer = document.getElementById('scroll-intent');
+      const intentText = document.getElementById('intent-text');
+
+      ScrollTrigger.observe({
+        target: window,
+        type: "scroll",
+        onUp: () => gsap.to(intentContainer, {opacity: 1, y: 0, duration: 0.3}),
+        onDown: () => gsap.to(intentContainer, {opacity: 0, y: 10, duration: 0.3})
+      });
+
+      const updateIntent = (text) => {
+        if(intentText.innerText !== text) {
+          gsap.timeline()
+            .to(intentText, {opacity: 0, duration: 0.2})
+            .set(intentText, {innerText: text})
+            .to(intentText, {opacity: 1, duration: 0.2});
+        }
+      };
+
+      ScrollTrigger.create({
+        trigger: "#diferenciais",
+        start: "top center",
+        onEnter: () => updateIntent("Lendo: Diferenciais Técnicos..."),
+        onLeaveBack: () => updateIntent("Otimizando contexto Hero...")
+      });
+
+      ScrollTrigger.create({
+        trigger: "#solucoes",
+        start: "top center",
+        onEnter: () => updateIntent("Prevendo interesse no Catálogo..."),
+        onLeaveBack: () => updateIntent("Lendo: Diferenciais Técnicos...")
+      });
+
+      ScrollTrigger.create({
+        trigger: "#depoimentos",
+        start: "top center",
+        onEnter: () => updateIntent("Analisando Comprovação Social..."),
+        onLeaveBack: () => updateIntent("Prevendo interesse no Catálogo...")
+      });
+
+      const tl = gsap.timeline();
+      tl.from("header", { y: -20, opacity: 0, duration: 1, ease: "power3.out" })
+        .from(".hero-text", { y: 20, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out" }, "-=0.6")
+        .from(".hero-img", { scale: 1.05, opacity: 0, duration: 2, ease: "power2.out" }, "-=1.5");
+
+      gsap.utils.toArray('.reveal').forEach(elem => {
+        gsap.from(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 85%",
+          },
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out"
+        });
+      });
+
+      const cards = document.querySelectorAll('.bento-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, { y: -2, duration: 0.3, ease: 'power2.out', borderColor: '#C2A35D' });
+        });
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', borderColor: 'rgba(255, 255, 255, 0.1)' });
+        });
+      });
+    });
+  </script>
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/5541996098880" target="_blank" rel="noopener noreferrer" class="fixed bottom-8 right-8 z-[100] group flex items-center justify-center">
+    <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-75"></span>
+    <span class="relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.996 0C5.372 0 0 5.373 0 12.001c0 2.632.825 5.093 2.333 7.151L.742 24l5.018-1.306A11.96 11.96 0 0011.996 24c6.623 0 11.995-5.373 11.995-12.001S18.618 0 11.996 0zm6.5 17.143c-.276.776-1.583 1.488-2.186 1.543-.59.055-1.285.197-4.14-1.026-3.425-1.468-5.63-5.07-5.811-5.311-.18-.242-1.385-1.848-1.385-3.528 0-1.68.877-2.528 1.18-2.852.302-.323.663-.404.884-.404.22 0 .441.002.624.011.201.01.472-.075.727.545.267.65.918 2.27 1.001 2.435.082.164.137.354.025.576-.112.222-.167.363-.334.565-.164.202-.34.433-.491.564-.165.148-.337.311-.153.633.184.321.821 1.365 1.761 2.203 1.218 1.087 2.246 1.424 2.574 1.576.328.152.52.126.716-.09.196-.217.842-1.01 1.07-1.354.227-.343.454-.287.753-.175.297.112 1.884.896 2.21.164.162.244.249.385.344.595.095.345.068 1.01-.208 1.786z"/>
+      </svg>
+    </span>
+  </a>
+</body>
+</html>
